@@ -1,0 +1,43 @@
+class Solution {
+  public:
+    int getSecondLargest(vector<int> &arr) {
+        //Optimal
+        int largest=arr[0];
+        int s_largest=-1;
+        for(int i=1; arr.size()>i; i++){
+            if(arr[i]>largest){
+                s_largest=largest;
+                largest=arr[i];
+            }
+            else if(arr[i]<largest && arr[i]>s_largest){
+                s_largest=arr[i];
+            }
+        }
+        return s_largest;
+        /*
+    brute:
+        std::sort(arr.begin(), arr.end());
+        int largest = arr[arr.size() - 1];
+        for (int i = arr.size() - 2; i >= 0; --i) {
+            if (arr[i] < largest) {
+                return arr[i];
+            }
+        }
+        return -1;
+    Better:
+        int largest=0;
+        for(int i=0; arr.size()>i; i++){
+            if(arr[i]>largest){
+                largest= arr[i];
+            }
+        }
+        int s_largest=-1;
+        for(int i=0; arr.size()>i; i++){
+            if(arr[i]>s_largest && arr[i]!=largest){
+                s_largest=arr[i];
+            }
+        }
+        return s_largest;    
+        */
+    }    
+};
