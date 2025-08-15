@@ -1,0 +1,15 @@
+class Solution {
+  public:
+    bool isSorted(vector<int>& arr) {
+        int last_element=arr[0];
+        for(int i=1; arr.size()>i; i++){
+            if(arr[i]<last_element){
+                return false;
+            }
+            else{
+                last_element=arr[i];
+            }
+        }
+        return true;
+    }
+};
